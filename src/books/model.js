@@ -10,8 +10,8 @@ const bookSchema = new mongoose.Schema({
         required:true
     },
     genre:{
-        typr:String,
-        required:trusted
+        type:String,
+        required:true
     }
 });
 

@@ -1,3 +1,5 @@
+***********This is business logic*****************
+
 What do we want to achieve?
 
 Allow user to add a book to a database
@@ -20,7 +22,7 @@ Book:
     author: string
     genre: string
     __v:number
-    
+
 Request
     Body: 
         type: object
