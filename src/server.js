@@ -68,7 +68,7 @@ app.put("/books/updatebookauthor", async (req, res) => {
     );
     const successResponse = {
       message: "success",
-      author: newBook,
+      newBook: newBook,
     };
 
     res.status(201).json(successResponse);
@@ -109,29 +109,18 @@ app.post("/books/dynamicupdate", async (req, res) => {
     console.log("fieldName", fieldName, "data", req.body[fieldName]);
     console.log(req.params);
     let newBook = {};
-    // newBook = await Book.findOneAndUpdate(
-    //     { title: req.body.title },
-    //     { fieldName: req.body[fieldName] },
-    //     { new: true }
-    // );  
-    switch (fieldName) {
-      case "author":
-        console.log("edit author");
-        newBook = await Book.findOneAndUpdate(
-          { title: req.body.title },
-          { author: req.body.author },
-          { new: true }
-        );
-        break;
-      case "genre":
-        console.log("edit genre");
-        newBook = await Book.findOneAndUpdate(
-          { title: req.body.title },
-          { genre: req.body.genre },
-          { new: true }
-        );
-        break;
-    }
+    let query  = { title: req.body.title };
+    //let doc = {fieldName:req.body[fieldName]}; //this don't work
+    let doc = {}; 
+    doc[fieldName] = req.body[fieldName]; //this method works :/
+
+    let options = { new: true };
+    console.log(query, doc, options);
+
+    newBook = await Book.findOneAndUpdate(
+        query, doc, options
+    );  
+
     let successResponse = {};
     if (newBook !== undefined) {
       successResponse = { message: "success", newRecord: newBook };
