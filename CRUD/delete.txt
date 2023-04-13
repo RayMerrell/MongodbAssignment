@@ -1,0 +1,44 @@
+What do we want to achieve?
+
+Allow user to delete a book
+
+What do we want a user to be able to do?
+
+1. Input book title
+2. Delete the book
+3. Recieve confirmation that the book has bee deleted
+
+Endpoint/route
+
+/books/deletebook
+
+Request type
+
+DELETE
+
+Data Requirements
+
+DB
+
+Book:
+    id: integer 
+    title: string   
+    author: string
+    genre: string
+
+Request
+
+Body: 
+    type: object
+    properties:
+        title: string   
+
+Response
+
+SuccessResponse:
+    type: object  
+    status: 201  
+    properties:
+        message:
+            type: string
+            example: 'successfully deleted'

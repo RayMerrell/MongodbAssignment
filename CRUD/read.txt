@@ -1,0 +1,50 @@
+What do we want to achieve?
+
+Allow user to get the details for all books
+
+What do we want a user to be able to do?
+
+1. Get a list of all the books and their data
+
+Endpoint/route
+
+/books/getallbooks
+
+Request type
+
+GET
+
+Data Requirements
+
+DB
+
+Book:
+    id: integer 
+    title: string   
+    author: string
+    genre: string
+
+Request
+
+Body: N/A
+
+Response
+
+SuccessResponse:
+    type: object  
+    status: 200  
+    properties:
+        message:
+            type: string
+            example: 'success'
+        books:
+            type: array
+            items:
+                book:
+                    properties:
+                        _id: string 
+                        title: string   
+                        author: string
+                        genre: string 
+                        __v: integer
+

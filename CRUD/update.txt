@@ -1,0 +1,54 @@
+What do we want to achieve?
+
+Allow user to change the book author's name
+
+What do we want a user to be able to do?
+
+1. Input a book title
+2. Input a new author name
+3. Recieve confirmation of a successful update
+
+Endpoint/route
+
+/books/updatebookauthor
+
+Request type
+
+PUT
+
+Data Requirements
+
+DB
+
+Book:
+    id: integer 
+    title: string   
+    author: string
+    genre: string
+
+Request
+
+Body: 
+    type: object
+    properties:
+        title: string   
+        newAuthor: string  
+
+SuccessResponse: 
+    type: object  
+    status: 201  
+    properties:
+        message:
+            type: string
+            example: 'success'
+        updatedBook:
+            type: object
+            properties:
+                title: string
+                author: string  
+                genre: string
+
+
+
+
+                
