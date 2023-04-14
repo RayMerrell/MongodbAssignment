@@ -1,0 +1,54 @@
+***********This is business logic*****************
+
+What do we want to achieve?
+
+Allow user to add a book to a database
+What do we want a user to be able to do?
+1. Input book title
+2. Input book author (first name/last name)
+3. Input book genre
+4. Get author _id from author doc
+5. Create book with given data and author_id
+6. Have confirmation that the book has been created, or fail notice of author does not exist.
+
+Endpoint/route
+    /books/addbook
+Request type
+    POST
+Data Requirements
+    DB
+Book:
+    id: string
+    title: string   
+    author: string
+    genre: string
+    __v:number
+
+Request
+    Body: 
+        type: object
+        properties:
+            title: string   
+            author: string  
+            genre: string
+Response
+    SuccessResponse:
+        type: object  
+        status: 201  
+        properties:
+            message:
+                type: string
+                example: 'success'
+            newBook:
+                type: object
+                properties:
+                    title: string
+                    author: string  
+                    genre: string
+                    _id: string
+
+
+
+
+
+
