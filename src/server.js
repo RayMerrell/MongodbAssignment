@@ -5,15 +5,17 @@ require("./db/connection");
 const express = require("express");
 const app = express();
 const bookRouter = require("./books/routes");
-const authorRouter=require("./authors/controller");
+const authorRouter=require("./authors/routes");
+const cors= require("cors");
 
+app.use(cors());
 app.use(express.json());
 app.use(bookRouter);
 app.use(authorRouter);
 
 
-const Book = require("./books/model");
-const Author = require("./authors/model");
+// const Book = require("./books/model");
+// const Author = require("./authors/model");
 
 app.listen(5001, () => console.log("Server is listening"));
 
